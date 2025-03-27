@@ -1,4 +1,3 @@
-
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -21,6 +20,10 @@ app.add_middleware(
 class LoginData(BaseModel):
     email: str
     password: str
+
+@app.get("/")
+def root():
+    return {"message": "Hello from WebAgent API!"}
 
 @app.post("/login")
 def login(data: LoginData):
