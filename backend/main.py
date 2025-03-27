@@ -2,6 +2,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+print("✅ FastAPI app is loading...")
+
 app = FastAPI(
     title="WebAgent API",
     version="1.0.0",
@@ -23,7 +25,7 @@ class LoginData(BaseModel):
 
 @app.get("/")
 def root():
-    return {"message": "Hello from WebAgent API!"}
+    return {"message": "Backend is running!"}
 
 @app.post("/login")
 def login(data: LoginData):
