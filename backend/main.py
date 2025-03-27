@@ -2,7 +2,12 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-app = FastAPI()
+app = FastAPI(
+    title="WebAgent API",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc"
+)
 
 app.add_middleware(
     CORSMiddleware,
